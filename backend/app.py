@@ -5,7 +5,7 @@ from flask_socketio import SocketIO
 from easysnmp import Session, EasySNMPError
 
 # === Configurações via ambiente ===
-SNMP_TARGET    = os.getenv('SNMP_TARGET', '192.168.25.20')
+SNMP_TARGET    = os.getenv('SNMP_TARGET', '192.168.88.1')
 SNMP_COMMUNITY = os.getenv('SNMP_COMMUNITY', 'public')
 # Nome da interface padrão (ether1, bridge, etc.)
 IF_NAME        = os.getenv('IF_NAME', 'ether1')
