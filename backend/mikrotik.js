@@ -12,9 +12,9 @@ class MikroTik {
   async connect() {
     try {
       await this.client.connect();
-      console.log('✅ Conectado ao MikroTik');
+      console.log('✅ Conexão ao MikroTik concluida com Sucesso');
     } catch (err) {
-      console.error('❌ Erro ao conectar ao MikroTik:', err.message);
+      console.error('❌ Erro na conexão ao MikroTik:', err.message);
       throw err;
     }
   }

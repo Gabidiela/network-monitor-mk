@@ -11,8 +11,8 @@ const chart = new Chart(ctx, {
     data: {
         labels: [],
         datasets: [
-            { label: 'Rx (Mbps)', data: [], borderColor: 'blue', fill: false },
-            { label: 'Tx (Mbps)', data: [], borderColor: 'green', fill: false },
+            { label: 'Rx (Mbps)', data: [], borderColor: '#ee0290', fill: false },
+            { label: 'Tx (Mbps)', data: [], borderColor: '#ee6002', fill: false },
         ],
     },
     options: {
