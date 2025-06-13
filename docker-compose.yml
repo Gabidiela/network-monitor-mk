@@ -4,7 +4,7 @@ services:
     build: ./backend
     container_name: bandwidth-backend
     environment:
-      - SNMP_TARGET=192.168.25.20
+      - SNMP_TARGET=192.168.88.1
       - SNMP_COMMUNITY=public
       - IF_INDEX=1
     ports:
