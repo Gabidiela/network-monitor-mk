@@ -1,61 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mikrotik Bandwidth Monitor</title>
-  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, sans-serif; background: #FCE4EC
-; }
-    .container { padding: 1rem; max-width: 900px; margin: auto; }
-    h1 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
-    .top-bar { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
-    .chart-wrapper { border: 2px solid #ff1b7a; padding: 0.5rem; background: #ffecec; }
-    .controls { display: flex; justify-content: space-between; align-items: center; margin: 1rem 0; }
-    .controls select, .controls button { padding: 0.5rem 1rem; font-size: 1rem; }
-    .footer { display: flex; justify-content: space-between; font-size: 0.9rem; border-top: 1px solid #ccc; padding-top: 0.5rem; }
-    canvas { width: 100% !important; height: 400px !important; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Mikrotik Bandwidth Monitor</h1>
-    <div class="top-bar">
-      <div>IP/Hostname: <span id="hostLabel">192.168.88.1</span></div>
-      <div>Interface: <span id="ifaceLabel">ether1</span></div>
-    </div>
-    <div class="chart-wrapper">
-      <canvas id="bwChart"></canvas>
-    </div>
-    <div class="controls">
-      <div>
-        <label for="ifaceSelect">Interface:</label>
-        <select id="ifaceSelect">
-          <option>ether1</option>
-          <option>lo</option>
-          <option>ether2-master</option>
-          <option>ether2</option>
-          <option>ether3</option>
-          <option>ether4</option>
-          <option>bridge</option>
-        </select>
-      </div>
-      <button id="pauseBtn">Pausar</button>
-    </div>
-    <div class="footer">
-      <div>Status: <span id="status">Desconectado</span></div>
-      <div>Última leitura: <span id="lastTime">--:--:--</span></div>
-      <div>Tempo decorrido: <span id="elapsed">00:00:00</span></div>
-    </div>
-  </div>
-  <!-- antes do seu /assets/script.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
-  <script src="/assets/script.js"></script>
+<html lang="pt-br">
 
-  <script src="/assets/script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Mikrotik Bandwidth Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-4xl">
+
+        <h1 class="title-central">Mikrotik Bandwidth Monitor</h1>
+
+        <div class="container-ip-interface ">
+            <h2 class="text-ip">IP/Hostname: 192.168.88.1 <span id="mikrotik-ip">--</span></h2>
+            <h2 class="text-interface">Interface: <span id="interface-atual">ether1</span></h2>
+
+        </div>
+
+        <canvas id="chart" class="my-4"></canvas>
+
+        <div class="container-bottom ">
+            <h2>Status: <span class="status-span text-red-600">Desconectado</span></h2>
+
+            <button id="pause-btn">
+                Pausar
+            </button>
+
+            <h2 id="text-interface">
+                Interface:
+                <select id="interface-select">
+                    <option value="ether1">PoE</option>
+                    <option value="ether2">ether2</option>
+                    <option value="ether3">ether3</option>
+                    <option value="ether3">ether4</option>
+                </select>
+            </h2>
+
+            <h2>
+                Última leitura: <span id="last-read"></span>
+            </h2>
+        </div>
+
 </body>
+
 </html>

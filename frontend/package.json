@@ -1,9 +1,0 @@
-{
-  "name": "mikrotik-bandwidth-frontend",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "socket.io-client": "^4.5.0",
-    "chart.js": "^4.4.0"
-  }
-}
